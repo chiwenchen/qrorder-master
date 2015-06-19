@@ -1,0 +1,8 @@
+<!-- @menu = Menu.find(params[:id]) -->
+<div class='text-center'>
+<h2>Dish: <%= @menu.dish_name %></h4>
+<p><%= @menu.description %></p>
+<%= image_tag(@menu.photo, size: '280x100', class: 'small_image') %>
+<br>
+<%= link_to 'Edit This Dish', edit_restaurant_menu_path(@menu.restaurant, @menu), class: 'btn btn-success' %>
+</div>

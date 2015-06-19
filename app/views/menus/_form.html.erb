@@ -1,0 +1,16 @@
+<%= render "/share/form_errors", obj: @menu %>
+
+<%= form_for [@restaurant, @menu] do |f| %>
+  <%= f.label :dish_name %>
+  <%= f.text_field :dish_name %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :photo %>
+  <%= f.text_field :photo %>
+  <br>
+  <%= f.submit button, class: 'btn btn-default' %>
+<% end %>
+
+

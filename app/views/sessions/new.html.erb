@@ -1,0 +1,28 @@
+<div class = 'form'>
+<h2>Log in</h2>
+<%= form_tag login_path, method: 'post' do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <br>
+  <%= label_tag :password %>
+  <%= text_field_tag :password %>
+  <br>
+  <%= submit_tag 'Login', class: 'btn btn-success' %>
+<% end %>
+</div>
+
+<div class = 'alert alert-warning'>
+Here is some accounts you can test it out:
+<table class="table" >
+  <thead>
+    <tr><th>Role</th><th>Name</th><th>Password</th></tr>
+  </thead>  
+    <tr><td>Admin</td><td>admin</td><td>admin</td></tr>
+    <tr><td>Manager</td><td>otto</td><td>123</td></tr>
+    <tr><td>Chef</td><td>kim</td><td>123</td></tr>
+</table>
+</div>
+<div class='text-center'>
+  or<br>
+  <%= link_to "I just want to take a seat and have something to EAT!!!", restaurant_table_path(1,1), class: 'btn btn-primary' %>
+</div>

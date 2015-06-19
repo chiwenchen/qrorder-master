@@ -1,0 +1,38 @@
+<h3><%= @restaurant.name %>'s Table <%= @table.number %></h3>
+<%= link_to 'Place Order', place_order_table_path(@table), method: 'post', class: 'btn btn-success' %>
+<% if params[:show_order] == nil || params[:show_order] == 'false' %>
+  <%= link_to 'Show Orderd Dishes', restaurant_table_path(@restaurant, @table, show_order: 'true'), class: 'btn btn-warning' %>
+<% elsif params[:show_order] == 'true' %>
+  <%= link_to 'Close', restaurant_table_path(@restaurant, @table, show_order: 'false'), class: 'btn btn-danger' %>
+  <%= render 'show_order' %>
+<% end %>
+
+<hr class='hr'>
+<div class='row'>
+<% @restaurant.menus.each do |menu| %>
+  <div class='span4'>  
+    <ul class="thumbnails">
+      <li class="span4">
+        <div class="thumbnail">
+          <%= image_tag(menu.photo, size: '280x100') %>
+        <h4 class='text-center'><%= menu.dish_name %></h4>
+        <%= link_to order_table_path(@table, menu: menu.id, selection: 'order'), method: 'post', remote: true, class: 'btn btn-success' do %>
+          <i class = 'icon-ok'></i><span> Order</span>
+        <% end %>
+        <%= link_to order_table_path(@table, menu: menu.id, selection: 'disorder'), method: 'post',remote: true, class: 'btn btn-warning' do %>
+          <i class = 'icon-remove'></i><span> Cancel</span>
+        <% end %>
+
+          Total Order:
+          <span id='table_<%= session[:table] %>_menu_<%= menu.id %>'>
+            <span class='badge badge-<%= session[:order][menu.id.to_s].nil? ? '' : 'important' %>'> 
+              <%= !session[:order][menu.id.to_s].nil? ? session[:order][menu.id.to_s] : 0 %>
+            </span>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<% end %>
+</div>
+

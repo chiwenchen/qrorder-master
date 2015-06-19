@@ -1,0 +1,27 @@
+<%= render "/share/form_errors", obj: @user %>
+
+<div class='form'>
+  <h2> Register a New Role </h2>
+
+  <%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    <br>
+    <%= f.label :role %>
+    <span>
+    <%= f.radio_button :role, 'Manager' %> Manager
+    <%= f.radio_button :role, 'Chef' %> Chef
+    <%= f.radio_button :role, 'Waiter' %> Waiter
+  </span>
+    <br>
+    <br>
+    <%= f.label :restaurant_id, 'Restaurant' %>
+    <%= f.select :restaurant_id, Restaurant.all.map{ |rest| [rest.name, rest.id] } %>
+    <br>
+    <%= f.submit 'Register', class: 'btn btn-primary' %>  
+  <% end %>
+
+</div>

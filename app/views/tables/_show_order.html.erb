@@ -1,0 +1,24 @@
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Dish</th>
+      <th>Quantity</th>
+      <th>Orderd at</th>
+      <th>Status</th>
+    </tr>
+  </thead>  
+  <% @table.orders.each do |order|%>
+    <tr>
+      <td><%= order.menu.dish_name %></td>
+      <td><%= order.quantity %></td>
+      <td><%= order.order_time %></td>
+      <td>
+        <% if order.status == false %>
+          Preparing
+        <% else %>
+          Serverd
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

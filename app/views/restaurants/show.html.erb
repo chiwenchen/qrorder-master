@@ -1,0 +1,42 @@
+<h2 class='text-center'><%= @restaurant.name %></h2>
+
+<h3>Manu</h3>
+<hr>
+<div class='row'>
+
+    <% @restaurant.menus.each do |menu| %>
+    <div class='span4'>  
+      <ul class="thumbnails">
+        <li class="span4">
+          <%= link_to restaurant_menu_path(@restaurant, menu), class: "thumbnail" do %>
+            <%= image_tag(menu.photo, size: '280x100') %>
+          <br>
+          Dish: <strong><%= menu.dish_name %></strong>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+</div>
+<br>
+
+<% if admin? %>
+  <%= link_to 'New Menu', new_restaurant_menu_path(@restaurant), class: 'btn' %>
+<% end %>
+
+
+<h3>Tables</h3>
+<% @restaurant.tables.each do |table|%>
+  <%= link_to restaurant_table_path(@restaurant, table), class: 'btn btn-default' do %>
+    <i class = 'icon-glass'></i><span> Table NO. <%= table.number%></span>
+  <% end %>
+<% end %>
+<br><br>
+<% if admin? %>
+  <span><%= link_to 'Add a new table', restaurant_tables_path(@restaurant), method:'post', class: 'btn btn-success' %></span>
+  <span><%= link_to 'Remove a table', table_path, method:'delete', class: 'btn btn-danger' %></span>
+<% end %>
+<!-- Table list (temporary), will replaced by QR code access -->
+
+
+

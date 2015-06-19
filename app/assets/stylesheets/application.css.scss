@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+
+.small_image{
+  border-width: 20px;
+  padding: 25px;
+}
+
+.form{
+  border-width: 2px;
+  padding: 25px;
+  border-color: black;
+  border-style: solid;
+  margin: 30px 30% 30px 30%;
+  background-color: #C5E0DC;
+  border-radius: 15px;
+}
+
+#footer{
+  color: #B8B8B8;
+  p{
+    color: #774F38;
+  }
+}
+
+#body{
+  background-color: #C5E0DC;
+
+}
+
+#nav{
+  padding-top: 5px;
+}
+
+#nav_inner{
+  background: #F1D4AF;
+  .brand{
+    color: #774F38;
+  } 
+  .nav{
+    .divider-vertical{
+      border-left: 1px solid #774F38;
+      border-right: 1px solid #774F38;
+    }
+  } 
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-success {
+    background: #3B8686;
+    color: #ffffff;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    background: #79BD9A;
+}
+
+
+
+.btn-warning {
+    background: #E08E79;
+    color: #ffffff;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning {
+    background: #FF847C;
+}
+
+// h3{
+//   color: #D95B43;
+// }
+
+.thumbnail{
+  border-color: #E08E79;
+  border-width: 2px;
+  padding: 6px;
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #E08E79;
+  border-bottom: 1px solid #E08E79;
+}
+
+#for_test{
+  color: #ECE5CE;
+}
+
+
+
+// .btn {
+//     padding: 14px 24px;
+//     border: 0 none;
+//     font-weight: 700;
+//     letter-spacing: 1px;
+//     text-transform: uppercase;
+// }

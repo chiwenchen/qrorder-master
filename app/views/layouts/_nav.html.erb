@@ -1,0 +1,28 @@
+
+<div class="navbar", id='nav'>
+  <div class="navbar-inner", id='nav_inner'>
+    <a class="brand" href="#">Order System</a>
+    <ul class="nav">
+      <li class="divider-vertical"></li>
+      <% if my_role == "Admin" %>
+        <li><%= link_to 'Restaurants', restaurants_path%></li>
+      <% elsif my_role == "Manager" %>
+        <li><%= link_to 'Add New Menu', new_restaurant_menu_path(my_restaurant) %></li>   
+      <% elsif my_role == "Manager" || my_role == "Chef" %>
+        <li><%= link_to 'Chef Page',  chef_restaurant_path(my_restaurant) %></li> 
+      <% end %>           
+    </ul>
+    <ul class='nav pull-right'>
+      <% if logged_in? %>
+        <li><a><%= current_user.name.titleize %> as a <%= my_role %></a></li>
+        <span><%= link_to 'Logout', logout_path, class: 'btn btn-warning' %></span>  
+      <% else %>
+        <span><%= link_to 'Login', login_path, class: 'btn btn-success' %></span>      
+        <span><%= link_to 'Register', register_path, class: 'btn btn-primary' %></span>
+      <% end %>
+    </ul>
+    </span>
+
+
+  </div>
+</div>

@@ -1,0 +1,3 @@
+  <span class="badge badge-<%= session[:order][params[:menu]].nil? ? '' : 'important' %>">
+    <%= !session[:order][params[:menu]].nil? ? session[:order][params[:menu]] : 0 %>
+  </span>

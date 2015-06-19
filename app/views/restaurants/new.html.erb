@@ -1,0 +1,14 @@
+<%= render "/share/form_errors", obj: @restaurant %>
+
+<div class='form'>
+  <h2>Add A New Restaurant</h2>
+  <%= form_for @restaurant do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+    <br>
+    <%= f.submit "Create", class: 'btn btn-success' %>
+  <% end %>
+</div>

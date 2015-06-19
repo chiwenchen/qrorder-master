@@ -1,0 +1,29 @@
+<h2><%= @restaurant.name%></h2>
+<% all_orders = Order.where({table: @restaurant.tables.each {|table| table }}) %>
+<% all_orders.order(:created_at) %>
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Dish</th>
+      <th>Quantity</th>
+      <th>Table</th>
+      <th>Orderd at</th>
+      <th>Status</th>
+    </tr>
+  </thead>  
+  <% all_orders.each do |order|%>
+    <tr>
+      <td><%= order.menu.dish_name %></td>
+      <td><%= order.quantity %></td>
+      <td><%= order.table.number %></td>
+      <td><%= order.order_time %></td>
+      <td id='order_<%= order.id %>_status'>
+        <% if order.status == false %>
+          <%= link_to 'Ready', change_order_status_order_path(order), method: 'patch', remote: true, class: 'btn btn-primary' %>
+        <% else %>
+          <span>Served</span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
