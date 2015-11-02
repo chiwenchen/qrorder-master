@@ -39,6 +39,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def waiter
+    @restaurant = Restaurant.find_by(slug: params[:id])
+    @tables = @restaurant.tables
+    @tables.each do |table|
+      table.orders
+    end
+  end
+
   private
 
   def strong_params

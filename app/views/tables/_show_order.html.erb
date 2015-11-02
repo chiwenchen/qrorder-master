@@ -13,11 +13,7 @@
       <td><%= order.quantity %></td>
       <td><%= order.order_time %></td>
       <td>
-        <% if order.status == false %>
-          Preparing
-        <% else %>
-          Serverd
-        <% end %>
+        <%= order.status %>
       </td>
     </tr>
   <% end %>

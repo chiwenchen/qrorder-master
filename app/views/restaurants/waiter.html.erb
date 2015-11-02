@@ -18,8 +18,8 @@
       <td><%= order.table.number %></td>
       <td><%= order.order_time %></td>
       <td id='order_<%= order.id %>_status'>
-        <% if order.status == "Preparing" %>
-          <%= link_to 'Ready', change_order_status_order_path(order, status: 'cooked'), method: 'patch', remote: true, class: 'btn btn-primary' %>
+        <% if order.status == "Cooked" %>
+          <%= link_to 'Ready to Serve', change_order_status_order_path(order, status: 'served'), method: 'patch', remote: true, class: 'btn btn-primary' %>
         <% else %>
           <span><%= order.status %></span>
         <% end %>

@@ -10,6 +10,8 @@
         <li><%= link_to 'Add New Menu', new_restaurant_menu_path(my_restaurant) %></li>   
       <% elsif my_role == "Manager" || my_role == "Chef" %>
         <li><%= link_to 'Chef Page',  chef_restaurant_path(my_restaurant) %></li> 
+      <% elsif my_role == "Waiter" %>
+        <li><%= link_to 'Waiter Page',  waiter_restaurant_path(my_restaurant) %></li> 
       <% end %>           
     </ul>
     <ul class='nav pull-right'>

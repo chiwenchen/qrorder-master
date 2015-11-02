@@ -52,7 +52,7 @@ class TablesController < ApplicationController
     table = Table.find(params[:id])
     restaurant = table.restaurant
     session[:order].each do |menu, qty|
-      Order.create(table_id: session[:table], menu_id: menu, quantity: qty, status: false)
+      Order.create(table_id: session[:table], menu_id: menu, quantity: qty, status: "Preparing")
     end
     session[:order] = {}
     flash[:success] = "You placed a order"

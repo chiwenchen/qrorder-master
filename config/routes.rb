@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show, :new, :create] do
     member do
-      get :chef
+      get :chef;
+      get :waiter;
     end  
     resources :menus, only: [:index, :new, :create, :show, :edit, :update];
     resources :tables, only: [:show, :create];
